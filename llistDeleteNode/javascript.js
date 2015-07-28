@@ -1,5 +1,5 @@
 // Functional
-// FAIL -- Had to dip into my notes on this one.
+// FAIL -- Had to dip into my notes on this one.  But the delete_node is fresh.
 
 var Node = function(value) {
   var node = {};
@@ -42,6 +42,17 @@ var LinkedList = function(){
     return false; // all node.values checked, not found.
   }
 
+  list.getNode = function(searchValue) {
+    var tempNode = list.head;
+    while(tempNode) {
+      if(tempNode.value===searchValue) {
+        return tempNode;
+      }
+      tempNode = tempNode.next;
+    }
+    return null; // all node.values checked, not found.
+  }
+
   list.delete_node = function(searchValue) {
     var lastTempNode = null;
     var tempNode = list.head;
@@ -66,8 +77,8 @@ var llist = LinkedList();
 llist.addNode('A')
 llist.addNode('B');
 llist.addNode('C');
-console.log("Contains 'B' = ", llist.contains('B'));
+console.log("GetNode 'B' = ", llist.getNode('B'));
 llist.delete_node('B');
-console.log("Contains 'B' = ", llist.contains('B') + " (Should be false)");
+console.log("GetNode 'B' = ", llist.getNode('B') + " (Should be null/missing)");
 
 

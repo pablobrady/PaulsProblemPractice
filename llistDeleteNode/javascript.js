@@ -22,6 +22,8 @@ var LinkedList = function(){
       list.tail.next = newNode; // Add this node to TAIL.
     }
     list.tail = newNode; // Update the latest tail, to our newNode.
+
+    return newNode;
   }
 
   list.removeHead = function() {
@@ -77,8 +79,12 @@ var llist = LinkedList();
 llist.addNode('A')
 llist.addNode('B');
 llist.addNode('C');
-console.log("GetNode 'B' = ", llist.getNode('B'));
-llist.delete_node('B');
-console.log("GetNode 'B' = ", llist.getNode('B') + " (Should be null/missing)");
+// console.log("GetNode 'B' = ", llist.getNode('B'));
+// llist.delete_node('B');
+// console.log("GetNode 'B' = ", llist.getNode('B') + " (Should be null/missing)");
+console.log("GetNode 'C' = ", llist.getNode('C'));
+llist.delete_node('C');
+console.log("GetNode 'B' = ", (llist.getNode('B')).value + " (Should be valid)");
+console.log("GetNode 'C' = ", llist.getNode('C') + " (Should be null/missing)");
 
 

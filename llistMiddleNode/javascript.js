@@ -2,7 +2,6 @@
 // But reveal a link to the MIDDLE of the Linked List also.
 
 // PsuedoClassical
-
 var LList = function() {
   this.head = null;
   // this.tail = null;
@@ -23,8 +22,7 @@ LList.prototype.addNode = function(value) {
   // Current Node
   if(!this.head) {
     this.head = newNode;
-    console.log("addNode:  HEAD ", this.head);
-    return;
+    return this.head;
 
   } else {
     currNode = this.head;
@@ -36,7 +34,8 @@ LList.prototype.addNode = function(value) {
   // AddNode the newNode
   currNode.next = newNode;
   currNode = newNode;
-  console.log("addNode:  VALUE ", currNode);
+
+  return currNode;
 };
 
 LList.prototype.middleNode = function() {
@@ -60,6 +59,9 @@ LList.prototype.middleNode = function() {
   return midNode;
 };
 
+
+console.log("-- DEVELOPMENT CONSOLE --");
+
 var myList = new LList();
 myList.addNode(1);
 myList.addNode(2);
@@ -75,5 +77,5 @@ myList.addNode(7);
 console.log("MID NODE:  ", myList.middleNode());
 
 
-
+console.log("-- DEVELOPMENT CONSOLE - COMPLETE --");
 

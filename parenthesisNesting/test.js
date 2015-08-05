@@ -3,19 +3,21 @@ var should = chai.should();
 
 
 
-describe('Middle Node in a Linked List (PsuedoClassical)', function() {
+describe('areParensBalanced()', function() {
 
-  it('Test 1 should equal "'+testStrings[0][1]+'"', function() {
-    expect( areParensBalanced( testStrings[0][0] ) ).to.equal( testStrings[0][1] );
-  })
 
-  it('Test 2 should equal "'+testStrings[1][1]+'"', function() {
-    expect( areParensBalanced( testStrings[1][0] ) ).to.equal( testStrings[1][1] );
-  })
+  var tests = [
+    {string: "{ [ ] ( ) }", result: true},
+    {string: "{ [ ( ] ) }", result: false},
+    {string: "{ [ }",       result: false}
+  ];
 
-  it('Test 3 should equal "'+testStrings[2][1]+'"', function() {
-    expect( areParensBalanced( testStrings[2][0] ) ).to.equal( testStrings[2][1] );
-  })
+  var count = 0;
+  tests.forEach(function(test){
+    count++;
+    it('Correctly detects string #' + count + " \'"+ test.string +"\' as " + test.result.toString().toUpperCase() +".", function() {
+      expect( areParensBalanced( test.string ) ).to.equal( test.result );
+    })
+  });
 
 });
-

@@ -13,7 +13,7 @@ var areParensBalanced = function(string) {
 
   for(var i=0; i<string.length; i++){
     var char = string[i];
-    if(char===" ") continue;
+    //if(char===" ") continue;
     if(char==="{" || char==="[" || char==="(") {
       parenStack.push(char);
     } else {
@@ -26,13 +26,3 @@ var areParensBalanced = function(string) {
   }
   return parenStack.length===0 ? true : false;
 }
-
-var testStrings = [
-  ["{ [ ] ( ) }", true],
-  ["{ [ ( ] ) }", false],
-  ["{ [ }", false]
-];
-
-// console.log("1. " + testStrings[0][0] + ", " + areParensBalanced( testStrings[0][0] ))
-// console.log("2. " + testStrings[1][0] + ", " + areParensBalanced( testStrings[1][0] ))
-// console.log("3. " + testStrings[2][0] + ", " + areParensBalanced( testStrings[2][0] ))

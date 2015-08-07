@@ -32,6 +32,10 @@ describe('Is any permutation of (test string) a Palindrome?', function() {
     {string: "ivicc", result: true},
     {string: "civil", result: false},
     {string: "livci", result: false},
+    {string: "civvic", result: true},
+    {string: "ivvicc", result: true},
+    {string: "civbil", result: false},
+    {string: "livcvb", result: false},
   ];
 
   var count = 0;

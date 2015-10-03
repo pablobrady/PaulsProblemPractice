@@ -9,29 +9,27 @@ var buildWordCloud = function ( aString ) {
 
   var wordObj = {};
 
-  // Count the word occurances
+  // Count the word occurences
   var maxCount = 0;
   for(var i=0; i<wordArray.length; i++){
     var wordStr = wordArray[i];
     wordObj[ wordStr ] = (wordObj[ wordStr ]) ? ++wordObj[wordStr] : 1;
 
     maxCount = (wordObj[wordStr] > maxCount) ? wordObj[wordStr] : maxCount;
-    // console.log("Word = " + wordStr + " --- count = " + wordObj[ wordStr ] );
   }
-  console.log("maxCount = " + maxCount);
+  // console.log('maxCount = ' + maxCount);
 
   // Populate the output (reading the workObj this time...)
   for(var element in wordObj) {
     var count = wordObj[element];
     if(count>6) count=6;
-    var hCount = maxCount - count;
+    var hCount = maxCount - count + 1;
 
-    console.log("VALUE " + element + " COUNT: " + count );
-    var newWord = "<h" + hCount + ">" + element + "</h" + hCount + ">";
+    console.log('VALUE ' + element + ' COUNT: ' + count );
+    var newWord = '<h' + hCount + ' class=tag>' + element + '</h' + hCount + '> ';
     retVal = retVal.concat( newWord );
   }
-  console.log("retVal = " + retVal);
-
+  
   return retVal;
 };
 

@@ -1,7 +1,8 @@
 // Linked List, from Scratch.
-// But reveal a link to the MIDDLE of the Linked List also.
+// ALSO, reveal the link that is in the middle of the Linked List.
 
-// PsuedoClassical
+// Using PsuedoClassical Class Instantiation
+
 var LList = function() {
   this.head = null;
   // this.tail = null;

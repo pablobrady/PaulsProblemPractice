@@ -1,23 +1,20 @@
-var wordStr = "After beating the eggs, Dana read the next step: Add milk and eggs, then add flour and sugar. And such...";
 
 var buildWordCloud = function ( aString ) {
   var retVal = "";
 
-  var re = /['.',',',':']/g;
-  var tempStr = aString.replace(re, '').toLowerCase(); // Regex.toLowerCase()
+  var tempStr = aString.replace(/[.,:;(){}\[\]?!]/g, '');
   var wordArray = tempStr.split(' ');
-
+  console.log('wordArray = ', wordArray);
   var wordObj = {};
 
   // Count the word occurences
   var maxCount = 0;
   for(var i=0; i<wordArray.length; i++){
-    var wordStr = wordArray[i];
+    var wordStr = wordArray[i].toLowerCase();
     wordObj[ wordStr ] = (wordObj[ wordStr ]) ? ++wordObj[wordStr] : 1;
 
     maxCount = (wordObj[wordStr] > maxCount) ? wordObj[wordStr] : maxCount;
   }
-  // console.log('maxCount = ' + maxCount);
 
   // Populate the output (reading the workObj this time...)
   for(var element in wordObj) {
@@ -29,13 +26,22 @@ var buildWordCloud = function ( aString ) {
     var newWord = '<h' + hCount + ' class=tag>' + element + '</h' + hCount + '> ';
     retVal = retVal.concat( newWord );
   }
-  
+
   return retVal;
 };
 
 
-var output = buildWordCloud( wordStr );
+var sourceArray = [
+  'After beating the eggs, Dana read the next step: Add milk and eggs, then add flour and sugar. And such...',
+  'We came, we saw, we conquered... then we ate Bill\'s (Mille-Feuille) cake.  Bill!  Bill?  Bill came for the cake!'
+];
 
-console.log("output:  " + output);
 
-document.getElementById('out').innerHTML = output;
+
+var output1 = buildWordCloud( sourceArray[0] );
+var output2 = buildWordCloud( sourceArray[1] );
+
+console.log('output:  ' + output1 + '<br><br>' + output2);
+
+document.getElementById('out1').innerHTML = output1;
+document.getElementById('out2').innerHTML = output2;

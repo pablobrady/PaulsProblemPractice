@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../bower_components/mocha/mocha.css" />
+  </head>
+  <body>
+    <div>
+Practice problem - Shuffle / In-place<br>
+    </div>
+
+    <h2>OUTPUT:</h2>
+    <div id="out1" class="output"></div>
+    <div id="out2" class="output"></div>
+    <br style="clear:left">
+
+
+    <div id="mocha"></div>
+    <script src="../bower_components/chai/chai.js"></script>
+    <script src="../bower_components/mocha/mocha.js"></script>
+
+    <script src="javascript.js"></script>
+    <script>
+      
+      var cardArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+      var cardShuffler = new Shuffler(cardArray);
+      var output1 = cardShuffler.shuffleInPlace( cardArray );
+      document.getElementById('out1').innerHTML = output1;
+      console.log('Shuffled cards:  ' + output1 + '<br>');
+
+    </script>
+
+    <script>mocha.setup('bdd')</script>
+    <script src="test.js"></script>
+    <script>
+      mocha.run();
+    </script>
+
+  </body>
+</html>

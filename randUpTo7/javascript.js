@@ -23,12 +23,9 @@ var rand7viaRand5 = function( sampleSize ) {
   // Build "Random" Matrix
   var randTable = [];
   var tableCounter = 1;
-  for(var x=0; x<5; x++) {
-    randTable[x] = [];
-    for(var y=0; y<5; y++) {
-      randTable[x][y] = tableCounter++;
-      if(tableCounter>7) tableCounter=1;
-    }
+  for(var xx=0; xx<25; xx++) {
+    randTable[xx] = tableCounter++;
+    if(tableCounter>7) tableCounter=1;
   }
 
   // Select randomly from randTable matrix
@@ -39,7 +36,7 @@ var rand7viaRand5 = function( sampleSize ) {
     ry = rand5()-1;
     if(rx===4 && ry>0) continue; // Toss out last 4 boxes
 
-    r7 = randTable[rx][ry];
+    r7 = randTable[rx*5 + ry]
     r7Results[r7] = ++r7Results[r7] || 1;
 
   }

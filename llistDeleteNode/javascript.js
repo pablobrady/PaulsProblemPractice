@@ -1,5 +1,4 @@
-// Functional
-// FAIL -- Had to dip into my notes on this one.  But the delete_node is fresh.
+// Linked List with Delete - Functional Instantiation
 
 var Node = function(value) {
   var node = {};
@@ -24,14 +23,14 @@ var LinkedList = function(){
     list.tail = newNode; // Update the latest tail, to our newNode.
 
     return newNode;
-  }
+  };
 
   list.removeHead = function() {
     var aValue = list.head.value;
     var next   = list.head.next;
     list.head  = next;
     return aValue;
-  }
+  };
 
   list.contains = function(searchValue) {
     var tempNode = list.head;
@@ -42,7 +41,7 @@ var LinkedList = function(){
       tempNode = tempNode.next;
     }
     return false; // all node.values checked, not found.
-  }
+  };
 
   list.getNode = function(searchValue) {
     var tempNode = list.head;
@@ -53,7 +52,7 @@ var LinkedList = function(){
       tempNode = tempNode.next;
     }
     return null; // all node.values checked, not found.
-  }
+  };
 
   list.delete_node = function(searchValue) {
     var lastTempNode = null;
@@ -62,13 +61,13 @@ var LinkedList = function(){
       if(tempNode.value===searchValue) {
         console.log("DELETING " + tempNode.value);
         lastTempNode.next = tempNode.next;
-        return;
+        return true;
       }
       lastTempNode = tempNode;
       tempNode = tempNode.next;
     }
     return false; // Unable to delete - not found.
-  }
+  };
 
 
   return list;
@@ -79,12 +78,11 @@ var llist = LinkedList();
 llist.addNode('A')
 llist.addNode('B');
 llist.addNode('C');
-// console.log("GetNode 'B' = ", llist.getNode('B'));
-// llist.delete_node('B');
-// console.log("GetNode 'B' = ", llist.getNode('B') + " (Should be null/missing)");
+console.log("GetNode 'B' = ", llist.getNode('B'));
+llist.delete_node('B');
+console.log("GetNode 'B' = ", llist.getNode('B') + " (Should be null/missing)");
 console.log("GetNode 'C' = ", llist.getNode('C'));
 llist.delete_node('C');
-console.log("GetNode 'B' = ", (llist.getNode('B')).value + " (Should be valid)");
+console.log("GetNode 'A' = ", llist.getNode('A').value + " (Should be available.)");
+console.log("GetNode 'B' = ", llist.getNode('B') + " (Should be null/missing)");
 console.log("GetNode 'C' = ", llist.getNode('C') + " (Should be null/missing)");
-
-

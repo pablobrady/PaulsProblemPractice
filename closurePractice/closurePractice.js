@@ -1,5 +1,5 @@
 var counter = (function() {
-  console.log("Immediately Invoked function, in 'Counter' namespace.");
+
   var privateCounter = 0;
   function changeBy(val) {
     privateCounter += val;

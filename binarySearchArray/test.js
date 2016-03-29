@@ -3,9 +3,11 @@ var should = chai.should();
 
 
 
-describe('TEST', function() {
+describe('Binary Search Test', function() {
 
   var myList = [1,3,5,9,11,15];
+
+  console.log("myList = ", myList);
 
   it('Search array for 1', function() {
 

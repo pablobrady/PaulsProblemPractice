@@ -1,40 +1,37 @@
-var findInList = function( findMe, myList ) {
-  "use strict";
+var findInList = function(s, arr) {
+  'use strict';
 
-  // ex. [1,3,5,9,11,15];
-  //      0 1 2 3  4  5
+  var len = arr.length;
+  var isFound = false;
 
-  var retBool = false;
-  var len = myList.length;
+  var recurse = function(beg, end) {
+      console.log("Beg=" + beg + " End:" + end);
+
+      // Base
+      if(beg===end) {
+          return false;
+      } else if(arr[beg]===s || arr[end]===s) {
+          return true;
+      } else if(s<arr[beg] || s>arr[end]) {
+          return false; // value before BEG or after END
+      }
+
+      // Process
+      var mid = Math.round( (end - beg)/2 );
+
+      if(s<arr[mid]) {
+          return recurse(beg+1, mid);
+      } else if(s>arr[mid]) {
+          return recurse(mid, end-1);
+      } else {
+          // Found!
+          return true;
+      }
 
 
-  // Recursive Function
-  var bSearch = function(startIdx, endIdx) {
-    // Base case
-    console.log( startIdx + " to " + endIdx );
-    if ( startIdx === endIdx-1 || startIdx === endIdx+1 || startIdx === endIdx) {
-      if ( myList[startIdx]===findMe || myList[startIdx-1]===findMe || myList[startIdx+1]===findMe ) {
-        return true;
-      } 
-      return false;
-    }
-
-    var mid = Math.round( (endIdx - startIdx)/2 + startIdx );
-    console.log("----> MID = " + mid + " VAL: " + myList[mid]);
-
-    if ( myList[ mid ]<findMe ) {
-      return bSearch(mid, endIdx);
-    } else if ( myList[ mid ]>findMe ) {
-      return bSearch(startIdx, mid);
-    } else {
-      return true;
-    }
   }
 
+  isFound = recurse(0, arr.length-1);
 
-  retBool = bSearch(0, len-1);
-
-  return retBool;
+  return isFound;
 };
-
-

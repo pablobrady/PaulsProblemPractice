@@ -6,7 +6,7 @@ var whichNumberTwice = function( anArray ) {
   var len = anArray.length;
   for(var i=0; i<len; i++) {
     var val = anArray[i];
-      if(checkForDup[ val ]) {
+    if(checkForDup[ val ]) {
       return val;
     }
     checkForDup[val]=true;

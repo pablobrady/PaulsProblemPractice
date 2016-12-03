@@ -23,30 +23,3 @@ describe('Is (test string) a Palindrome?', function() {
 
 });
 
-
-
-describe('Is any permutation of (test string) a Palindrome?', function() {
-
-  var tests = [
-    {string: "civic", result: true},
-    {string: "ivicc", result: true},
-    {string: "civil", result: false},
-    {string: "livci", result: false},
-    {string: "civvic", result: true},
-    {string: "ivvicc", result: true},
-    {string: "civbil", result: false},
-    {string: "livcvb", result: false},
-  ];
-
-  var count = 0;
-  tests.forEach(function(test){
-    count++;
-
-    it('Test string:  ' + test.string + " is " + test.result, function() {
-      expect( isAnyPermutationAPalindrome( test.string ) ).to.equal( test.result );
-    })
-
-  });
-
-});
-

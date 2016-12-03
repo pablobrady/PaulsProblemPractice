@@ -83,7 +83,8 @@ for(var x=0; x<20; x++) {
 console.log("Last node is: " + xNode.traverseAll() );
 
 // Output Last Node - 7
-console.log("K to Last Node is: " + xNode.findKToLast( kToLast ) );
+answerStr = xNode.findKToLast( kToLast );
+console.log("K to Last Node is: " + answerStr );
 
 
 

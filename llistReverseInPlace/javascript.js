@@ -23,7 +23,7 @@ LList.prototype.addNodeValue = function(value) {
       currNode = currNode.next;
     }
     currNode.next = newNode;
-    currNode = currNode.next;
+    currNode = newNode;
   }
   console.log("ADDED NODE VALUE:  " + currNode.value);
   return currNode.value;
@@ -33,17 +33,17 @@ LList.prototype.reverseList = function() {
   if(!this.home || !this.home.next) return;
 
   var currNode = this.home;
-  var tempNode = null;
+  var futureNode = null;
   var previousNode = null;
 
   while(currNode) {
-    tempNode = currNode.next;
-    currNode.next = previousNode;
-    previousNode = currNode;
-    currNode = tempNode;
+    futureNode    = currNode.next;
+    currNode.next = previousNode; // da meat
+    previousNode  = currNode;
+    currNode      = futureNode;
   }
   this.home = previousNode;
-  return previousNode;
+  return this.home;
 }
 
 LList.prototype.showAllNodeValues = function() {

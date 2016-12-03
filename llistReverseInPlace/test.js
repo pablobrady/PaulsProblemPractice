@@ -7,7 +7,7 @@ describe('Linked List Setup (PsuedoClassical)', function() {
 
 
   it('LLIST object is not empty after instanciation', function() {
-    expect(myList).to.not.equal(null);
+    expect( myList ).to.not.equal(null);
   })
 
   it('HOME NODE object is not empty after first addNode', function() {
@@ -41,11 +41,15 @@ describe('Linked List Setup (PsuedoClassical)', function() {
 
 describe('Linked List REVERSED', function() {
 
-  it('REVERSED LList - Node 1 value now is 4', function() {
+  it('REVERSED LList - Node 1 value now is 5; Node 2 is 4, etc.', function() {
     myList.showAllNodeValues();
     myList.reverseList();
     myList.showAllNodeValues();
     expect( myList.getNode(1).value ).to.equal( 5 );
+    expect( myList.getNode(2).value ).to.equal( 4 );
+    expect( myList.getNode(3).value ).to.equal( 3 );
+    expect( myList.getNode(4).value ).to.equal( 2 );
+    expect( myList.getNode(5).value ).to.equal( 1 );
   })
 
 });
